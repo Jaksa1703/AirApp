@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="text-center">Air Quality App</h1>
+<h5>ID Stacji</h5>
+<ul class="list-group">
+ <li class="list-group-item">Wrocław - 114 | Bydgoszcz - 156 | Lublin - 266  | Zielona Góra - 387</li>
+  <li class="list-group-item">Łódź - 295 | Kraków - 400 | Warszawa - 530 | Opole - 590</li>
+  <li class="list-group-item">Rzeszów - 671 | Białystok - 605 | Gdańsk - 736 | Katowice - 813 </li>
+  <li class="list-group-item">Kielce - 11195 | Olsztyn - 877 | Poznań - 944 | Szczecin - 986</li>
+</ul> <br/>
+
+{% if api %}
+  <div class="jumbotron {{category_color}}">
+    <h1 class="display-3">Stan jakości powietrza: {{api.stIndexLevel.indexLevelName}}</h1>
+    <h2 class="display-6">Id: {{api.id}}</h2>
+    <p class="lead">Data pomiaru: {{api.stCalcDate}}</p>
+    <hr class="my-4">
+    <p>{{ category_description }}</p>
+  </div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
+    <title>AirApp</title>
+    
+    <style>
+    	{% block colors %}
+    	.bd {background-color: #0c0 ;}	
+    	.db {background-color: #FFFF00 ;}	
+    	.um {background-color: #FF9900;}	
+    	.dost {background-color: #FF0000 ;}	
+    	.zły {background-color: #990066 ;}	
+    	.bzły{background-color: #660000;}	
+    	{% endblock %}
+    </style>
+
+  </head>
+  <body>
+
+	<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="/">AirApp</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="https://github.com/Jaksa1703/AirApp" target="_blank">About App</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="http://mywebsite-jaksa1703.pythonanywhere.com" target="_blank">About Me</a>
+	        </li>
+
+	      </ul>
+	      <form action="{% url 'home' %}" class="d-flex" method="POST">
+	      	{% csrf_token %}
+	        <input class="form-control me-2" type="search" placeholder="Wpisz ID" aria-label="Search" name="ID">
+	        <button class="btn btn-outline-secondary" type="submit">Szukaj</button>
+	      </form>
+	    </div>
+	  </div>
+	</nav>
+
+  	<br/>
+    <div class="container"><br/>
+	    	{% block content %}
+
+				{% endblock%}
+		</div>
+
+  </body>
+</html>
